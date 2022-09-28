@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tipp</title>
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+
+    <div class="container text-center">
+        <h1>Gondoltam egy számra</h1>
+        <p id="jatek">Még nem indítottad el a játékot!</p>
+        <div class="form-group">
+            <input type="number" placeholder="Tippelj!" id="tipp">
+        </div>
+        <input type="button" class="btn btn-primary" value="Ellenőrzés" onclick="jatek()">
+        <input type="button" class="btn btn-warning" value="Újrakezdés" onclick="ujra()">
+        <br>
+        <i class="fa-solid fa-mug-hot fa-xl" id="icon"></i>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+
+    <script>
+        function tippSzam(min, max){
+            return Math.floor(Math.random()*(max-min+1))+min
+        }
+
+        let randomSzam = tippSzam(1, 20)
+        console.log(randomSzam)
+
+        function jatek(){
+            let tipp = +document.querySelector("#tipp").value
+            //console.log(tipp)
+            let eredmeny = document.querySelector("#jatek")
+            //console.log(eredmeny)
+            let icon = document.querySelector("#icon")
+            //console.log(icon)
+
+            if(tipp==randomSzam){
+                eredmeny.innerHTML="Nyertél!"
+                icon.classList="fa-solid fa-check fa-xl"
+            } else {
+                eredmeny.innerHTML="Vesztettél!"
+                icon.classList="fa-solid fa-x fa-xl"
+            }
+        }
+
+        function ujra(){
+            let tipp = document.querySelector("#tipp")
+            tipp.value = ""
+            //console.log(tipp)
+
+            let eredmeny = document.querySelector("#jatek")
+            eredmeny.innerHTML = "Játék újrakezdve!"
+            //console.log(eredmeny)
+
+            let icon = document.querySelector("#icon")
+            //console.log(icon)
+            icon.classList = "fa-solid fa-mug-hot fa-xl"
+
+            randomSzam = tippSzam(1, 20)
+            console.log("Újrakezdve")
+            console.log(randomSzam)
+        }
+    </script>
+
+</body>
+</html>
