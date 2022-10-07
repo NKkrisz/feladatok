@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <style>
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <form action="">
+            <div class="form-group">
+                <label for="numberOne">Első szám</label>
+                <input type="number" class="form-control" id="numberOne">
+            </div>
+            <div class="form-group">
+                <label for="numberTwo">Második szám</label>
+                <input type="number" class="form-control" id="numberTwo">
+            </div>
+            <div class="form-group">
+                <label for="numberThree">Harmadik szám</label>
+                <input type="number" class="form-control" id="numberThree">
+            </div>
+            <button type="button" class="btn btn-warning" onclick="triangle()">Szerkeszthető?</button>
+        </form>
+    </div>
+
+    <script>
+        function triangle(){
+            let sideOne= parseInt(document.querySelector("#numberOne").value);
+            let sideTwo= parseInt(document.querySelector("#numberTwo").value);
+            let sideThree= parseInt(document.querySelector("#numberThree").value);
+
+            console.log(sideOne, sideTwo, sideThree);
+            console.log(typeof(sideOne));
+            if (sideOne<sideTwo+sideThree && sideTwo < sideOne+sideThree && sideThree < sideOne+sideTwo){
+                alert("A háromszög szerkeszthető!")
+            } else {
+                alert("A háromszöget nem lehet megszerkeszteni.")
+            }
+        }
+    </script>
+</body>
+</html>
