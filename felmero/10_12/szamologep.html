@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Szamologep</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <style>
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <form class="d-flex flex-column align-items-center">
+            <h1>Számológép</h1>
+            <div class="form-group">
+                <label for="numberOne">Első szám</label>
+                <input type="number" class="form-control" id="numberOne">
+            </div>
+            <div class="form-group">
+                <label for="numberTwo">Második szám</label>
+                <input type="number" class="form-control" id="numberTwo">
+            </div>
+            <div class="form-group">
+                <label for="eredmeny">Eredmény</label>
+                <input type="number" class="form-control" id="eredmeny" disabled>
+            </div>
+            <div class="row">
+                <button type="button" class="btn btn-warning ml-2 mr-2" onclick="calculate(this)">+</button>
+                <button type="button" class="btn btn-warning ml-2 mr-2" onclick="calculate(this)">-</button>
+                <button type="button" class="btn btn-warning ml-2 mr-2" onclick="calculate(this)">/</button>
+                <button type="button" class="btn btn-warning ml-2 mr-2" onclick="calculate(this)">*</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        function calculate(obj){
+            let szam1 = parseInt(document.getElementById("numberOne").value);
+            let szam2 = parseInt(document.getElementById("numberTwo").value);
+            let operator = obj.innerHTML;
+            console.log(szam1, szam2, operator);
+
+            let eredmenySzoveg = document.getElementById("eredmeny");
+            let eredmeny;
+
+            if(operator == "+") {
+                eredmeny=szam1+szam2;
+            } else if(operator == "-") {
+                eredmeny=szam1-szam2;
+            } else if(operator == "/"){
+                eredmeny=szam1/szam2;
+            } else {
+                eredmeny=szam1*szam2;
+            }
+            console.log(eredmeny);
+            eredmenySzoveg.value=eredmeny;
+            console.log(eredmenySzoveg);
+        }
+    </script>
+</body>
+</html>

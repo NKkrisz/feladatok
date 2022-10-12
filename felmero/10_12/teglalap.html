@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Téglalap</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <style>
+    
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="mb-3">Téglalap</h1>
+        <form class="mb-3">
+            <div class="form-group">
+                <label for="numberOne">Egyik oldal hosszúsága</label>
+                <input type="number" class="form-control" id="numberOne">
+            </div>
+            <div class="form-group">
+                <label for="numberTwo">Másik oldal hosszúsága</label>
+                <input type="number" class="form-control" id="numberTwo">
+            </div>
+            <button type="button" class="btn btn-warning" onclick="teglalap()">Számítás!</button>
+        </form>
+        <p id="kerulet">A teglalap kerülete:</p>
+        <p id="terulet">A teglalap területe:</p>
+    </div>
+
+    <script>
+        function teglalap(){
+            let oldal1=document.querySelector('#numberOne').value;
+            let oldal2=document.querySelector('#numberTwo').value;
+            let keruletSzoveg=document.querySelector('#kerulet');
+            let teruletSzoveg=document.querySelector('#terulet');
+
+            let kerulet = oldal1*2+oldal2*2;
+            let terulet = oldal1*oldal2;
+
+            console.log(kerulet, terulet);
+
+            keruletSzoveg.innerHTML="A téglalap kerülete: "+kerulet;
+            teruletSzoveg.innerHTML="A téglalap területe: "+terulet;
+        }
+
+    </script>
+</body>
+</html>

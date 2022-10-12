@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Képek</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <style>
+        img{
+            width: 50%;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+            <h1>Bolygók</h1>
+            <div class="row"> <img id="kep" src="fold.jpg" alt="bolgyó"></div>
+            <div class="row"><div class="btn btn-primary" onclick="change()">Változtatás</div></div>    
+    </div>
+    <script>
+        function change() {
+            let kep = document.getElementById("kep");
+            console.log(kep.src);
+            kep.src = (kep.src.match("fold.jpg")) ? "mars.jpg" : "fold.jpg";
+        }
+    </script>
+</body>
+</html>
